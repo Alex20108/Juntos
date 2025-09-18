@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Este bloque define un contenedor principal tipo RelativeLayout.
+     - Se establecen los espacios de nombres (xmlns) necesarios para Android,
+       atributos personalizados (app) y herramientas de diseño (tools).
+     - El contenedor ocupará todo el ancho y alto de la pantalla (match_parent).
+     - Se establece un color de fondo blanco (#FFFFFF). -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,19 +12,25 @@
     android:background="#FFFFFF">
 
     <!-- Contenedor principal -->
+    <!-- Este bloque define un contenedor principal tipo LinearLayout
+     que ocupa todo el ancho y alto de la pantalla (match_parent en ambos).
+     Los elementos hijos se organizarán de forma vertical (uno debajo del otro)
+     y el fondo del contenedor será blanco (#FFFFFF). -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#FFFFFF">
 
-        <!-- 🔹 Barra superior morada -->
+        <!-- 🔹 Barra superior morada: contenedor principal tipo RelativeLayout
+     que ocupa todo el ancho de la pantalla, 60dp de alto y con fondo morado (#6A1B9A). -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="#6A1B9A">
 
-            <!-- Logo a la izquierda -->
+            <!-- 📌 Logo: un ImageView de 40dp x 40dp, alineado a la izquierda con un margen de 12dp
+                 y centrado verticalmente. La imagen proviene de @drawable/ic_logo. -->
             <ImageView
                 android:id="@+id/imgLogo"
                 android:layout_width="40dp"
@@ -29,7 +40,8 @@
                 android:layout_marginStart="12dp"
                 android:src="@drawable/ic_logo" />
 
-            <!-- Texto centrado -->
+            <!-- 📌 Texto centrado: un TextView con el título "Juntos", color blanco,
+                 tamaño 20sp en negrita y ubicado en el centro del RelativeLayout. -->
             <TextView
                 android:id="@+id/txtTitulo"
                 android:layout_width="wrap_content"
@@ -40,7 +52,9 @@
                 android:textSize="20sp"
                 android:textStyle="bold"/>
 
-            <!-- Foto de perfil a la derecha -->
+            <!-- 📌 Foto de perfil: un CircleImageView de 50dp x 50dp, alineado a la derecha
+                 con margen de 12dp, centrado verticalmente. La imagen proviene de @drawable/ic_perfil
+                 y tiene un borde blanco de 2dp. -->
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgPerfil"
                 android:layout_width="50dp"
@@ -53,7 +67,16 @@
                 app:civ_border_color="#FFFFFF"/>
         </RelativeLayout>
 
+
         <!-- 🔹 Calendario ocupa todo el espacio disponible -->
+        <!-- 🔹 Calendario: un MaterialCalendarView que se expande y ocupa
+     todo el espacio disponible dentro del LinearLayout.
+     - Ancho: match_parent (ocupa todo el ancho).
+     - Alto: 0dp con layout_weight=1 (esto hace que el calendario crezca y llene
+       proporcionalmente el espacio libre del contenedor).
+     - mcv_showOtherDates="all" muestra los días de otros meses en el calendario.
+     - mcv_selectionColor="#2196F3" define el color azul (#2196F3)
+       para resaltar la selección de fechas. -->
         <com.prolificinteractive.materialcalendarview.MaterialCalendarView
             android:id="@+id/materialCalendarView"
             android:layout_width="match_parent"
@@ -64,6 +87,15 @@
     </LinearLayout>
 
     <!-- 🔹 Barra inferior personalizada -->
+    <!-- 🔹 Barra inferior personalizada: LinearLayout que funciona como una barra de navegación inferior.
+     - ID: @+id/bottomNavigation para identificarlo en el código.
+     - Ancho: match_parent (ocupa todo el ancho de la pantalla).
+     - Alto: 70dp (altura fija de la barra).
+     - layout_alignParentBottom="true": se ubica pegado en la parte inferior del contenedor padre.
+     - orientation="horizontal": los elementos dentro se organizarán de forma horizontal (uno al lado del otro).
+     - weightSum="3": divide el espacio en 3 partes iguales (útil si se colocan 3 botones o íconos).
+     - background="#F5F5F5": color gris claro como fondo de la barra.
+     - padding="10dp": agrega espacio interno alrededor de los elementos. -->
     <LinearLayout
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
@@ -75,6 +107,14 @@
         android:padding="10dp">
 
         <!-- Bienestar -->
+        <!-- 🔹 Sección "Bienestar": LinearLayout que representa un botón dentro de la barra inferior.
+     - Ancho: 0dp con layout_weight=1 → ocupa 1/3 del espacio horizontal.
+     - Alto: match_parent → se ajusta a la altura de la barra inferior.
+     - orientation="vertical": organiza sus elementos de arriba hacia abajo.
+     - gravity="center": centra el contenido en el espacio disponible.
+     Dentro contiene:
+        • Un ImageView (35dp x 35dp) con el ícono @drawable/ic_bienestar.
+        • Un TextView con el texto "Bienestar", tamaño de letra 13sp. -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -95,7 +135,14 @@
                 android:textSize="13sp"/>
         </LinearLayout>
 
-        <!-- Casa -->
+        <!-- 🔹 Sección "Casa": LinearLayout que representa un botón en la barra inferior.
+             - Ancho: 0dp con layout_weight=1 → ocupa 1/3 del espacio horizontal.
+             - Alto: match_parent → ajusta la altura completa de la barra.
+             - orientation="vertical": coloca el icono arriba y el texto abajo.
+             - gravity="center": centra los elementos en el espacio disponible.
+             Contiene:
+                • Un ImageView (40dp x 40dp) con el ícono @drawable/ic_home.
+                • Un TextView con el texto "Inicio", tamaño 13sp. -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -116,7 +163,14 @@
                 android:textSize="13sp"/>
         </LinearLayout>
 
-        <!-- Perfil -->
+        <!-- 🔹 Sección "Perfil": LinearLayout que representa otro botón en la barra inferior.
+             - Ancho: 0dp con layout_weight=1 → ocupa 1/3 del espacio horizontal.
+             - Alto: match_parent → llena la altura completa.
+             - orientation="vertical": coloca el icono arriba y el texto abajo.
+             - gravity="center": alinea ambos elementos en el centro.
+             Contiene:
+                • Un ImageView (35dp x 35dp) con el ícono @drawable/ic_per.
+                • Un TextView con el texto "Perfil", tamaño 13sp. -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"

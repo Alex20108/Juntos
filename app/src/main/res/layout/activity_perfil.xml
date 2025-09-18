@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- 🔹 Barra superior -->
+    <RelativeLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#6A1B9A"
+        android:layout_alignParentTop="true">
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/ic_logo" />
+
+        <!-- Texto centrado -->
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Perfil"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- Foto perfil -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgPerfil"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_perfil"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FFFFFF"/>
+    </RelativeLayout>
+
+    <!-- 🔹 Barra inferior -->
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:background="#6A1B9A"
+        android:padding="10dp">
+
+        <!-- Bienestar -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iconBienestar"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_bienestar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bienestar"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- Casa -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iconHome"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/ic_home" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inicio"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- Perfil -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iconPerfil"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_per" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Perfil"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 🔹 Contenido scrollable entre barra superior e inferior -->
+    <!-- 🔹 Contenido scrollable entre barra superior e inferior -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topBar"
+        android:layout_above="@id/bottomNavigation"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <!-- 🔹 Foto de perfil editable -->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgPerfilEditar"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_perfil"
+                android:layout_marginBottom="12dp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#6A1B9A"/>
+
+            <!-- Texto que dice "Cambiar foto" -->
+            <TextView
+                android:id="@+id/txtCambiarFoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cambiar foto"
+                android:textColor="#6A1B9A"
+                android:textSize="14sp"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- 🔹 Título -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Perfil de Usuario"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#6A1B9A"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- 🔹 Nombre -->
+            <EditText
+                android:id="@+id/inputNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Juan Pérez"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- 🔹 Correo -->
+            <EditText
+                android:id="@+id/inputCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="juanperez@example.com"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- 🔹 Teléfono -->
+            <EditText
+                android:id="@+id/inputTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+57 320 123 4567"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- 🔹 Dirección -->
+            <EditText
+                android:id="@+id/inputDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Calle 123 #45-67, Bogotá"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- 🔹 Fecha de nacimiento -->
+            <EditText
+                android:id="@+id/inputFechaNacimiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="10/05/1998"
+                android:layout_marginBottom="15dp"/>
+
+            <!-- 🔹 Botón Guardar -->
+            <Button
+                android:id="@+id/btnGuardar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guardar"
+                android:backgroundTint="#6A1B9A"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+    </ScrollView></RelativeLayout>
+

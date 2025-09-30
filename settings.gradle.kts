@@ -16,6 +16,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // solo si vas a usar artefactos desde JitPack (GitHub builds)
+        maven("https://jitpack.io")
     }
 }
 

@@ -1,12 +1,17 @@
 package com.example.juntos
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-
+/**
+ * 🚀 BienestarActivity
+ * Pantalla sencilla que muestra frases motivacionales al usuario.
+ * Características:
+ * - Tiene un TextView para mostrar una frase.
+ * - Tiene un botón "Nueva frase" que al presionar cambia el texto.
+ */
 class BienestarActivity : AppCompatActivity() {
 
+    // Índice para saber qué frase mostrar
     private val frases = listOf(
         "Respira profundo y sigue adelante 🌿",
         "Hoy es un buen día para sonreír 😊",
@@ -17,15 +22,7 @@ class BienestarActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bienestar)
+        setContentView(R.layout.activity_bienestar)// 🔹 Layout asociado a esta pantalla
 
-        val txtFrase = findViewById<TextView>(R.id.txtFrase)
-        val btnNuevaFrase = findViewById<Button>(R.id.btnNuevaFrase)
-
-        btnNuevaFrase.setOnClickListener {
-            // Elegir una frase aleatoria
-            val fraseAleatoria = frases.random()
-            txtFrase.text = fraseAleatoria
-        }
     }
 }

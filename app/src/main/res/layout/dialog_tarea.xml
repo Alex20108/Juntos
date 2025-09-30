@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 🔹 ScrollView:
+     - Permite que si el diálogo es más alto que la pantalla, se pueda desplazar.
+     - Ancho: match_parent → ocupa todo el ancho disponible.
+     - Alto: wrap_content → se ajusta al contenido, no forza toda la pantalla. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <!-- 🔹 Contenedor principal vertical -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <!-- 🔹 Título del diálogo -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crear tarea"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+        <!-- 🔹 Campo: título de la tarea -->
+        <EditText
+            android:id="@+id/edtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Título (ej. Yoga con Fernanda)"
+            android:inputType="text"/>
+
+        <!-- 🔹 Hora inicio
+             - focusable=false: evita que el usuario escriba directamente,
+               porque la hora se selecciona con TimePicker. -->
+        <EditText
+            android:id="@+id/edtHoraInicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hora inicio"
+            android:focusable="false"
+            android:layout_marginTop="8dp"/>
+
+
+        <!-- 🔹 Hora fin (misma lógica que la de inicio) -->
+        <EditText
+            android:id="@+id/edtHoraFin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hora fin"
+            android:focusable="false"
+            android:layout_marginTop="8dp"/>
+
+        <!-- 🔹 Selector de categoría (Spinner = lista desplegable) -->
+        <Spinner
+            android:id="@+id/spinnerCategoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+        <!-- 🔹 Botón para agregar nuevas categorías al Spinner -->
+        <Button
+            android:id="@+id/btnAddCategoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agregar categoría"
+            android:layout_marginTop="6dp"/>
+
+        <!-- Compañero -->
+        <EditText
+            android:id="@+id/edtCompanero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Agregar compañero (username)"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Guardar -->
+        <Button
+            android:id="@+id/btnGuardarDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#6A1B9A"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+</ScrollView>

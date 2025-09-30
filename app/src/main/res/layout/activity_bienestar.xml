@@ -147,8 +147,10 @@
                 android:textColor="#6A1B9A"
                 android:layout_marginBottom="12dp"/>
 
-            <!-- MUCHAS tarjetas de ejemplo para probar scroll -->
-            <!-- Repite/duplica estas tarjetas cuantas veces quieras para verificar el scroll -->
+            <!-- 🔹 Tarjeta de actividad -->
+            <!-- Cada tarjeta es un LinearLayout horizontal:
+                 - A la izquierda: foto circular del amigo.
+                 - A la derecha: nombre y descripción de la actividad. -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

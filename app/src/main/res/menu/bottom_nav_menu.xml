@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <!-- 🔹 Opción Bienestar
+         - id: identificador único para esta opción (lo usas en código).
+         - icon: ícono que se mostrará en la barra.
+         - title: texto visible debajo del icono. -->
     <item
         android:id="@+id/nav_bienestar"
         android:icon="@drawable/ic_bienestar"
         android:title="Bienestar"/>
-
+    <!-- 🔹 Opción Inicio
+            - Icono: ic_logo (deberías tenerlo en res/drawable).
+            - Texto: "Inicio". -->
     <item
         android:id="@+id/nav_inicio"
-        android:icon="@drawable/ic_inicio"
+        android:icon="@drawable/ic_logo"
         android:title="Inicio"/>
+    <!-- 🔹 Opción Perfil
+             - Icono: ic_perfil (imagen en drawable).
+             - Texto: "Perfil". -->
 
     <item
         android:id="@+id/nav_perfil"
